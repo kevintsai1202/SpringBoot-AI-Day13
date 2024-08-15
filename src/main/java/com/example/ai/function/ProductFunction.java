@@ -9,10 +9,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ProductFunction implements Function<ProductFunction.Request, ProductFunction.Response>{
 	public record Product(String year, String model, Integer quantity) {}
 	@Override
 	public Response apply(Request request) {
+		log.info("request:{}-{}",request.year, request.product);
+		
 		return new Response(List.of(
 				new Product("2022", "PD-1405", 12500),
 				new Product("2023", "PD-1234", 10000), 

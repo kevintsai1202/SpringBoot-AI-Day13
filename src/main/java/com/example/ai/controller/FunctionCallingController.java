@@ -24,6 +24,7 @@ public class FunctionCallingController {
         return chatModel.call(new Prompt(prompt, 
 				                         OpenAiChatOptions.builder()
 				                         .withFunction("ProductSalesInfo")
+				                         .withFunction("ProductDetailsInfo")
 				                         .withFunction("CurrectDateTime")
 				                         .build())
         		).getResult().getOutput().getContent();
